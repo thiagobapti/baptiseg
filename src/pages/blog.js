@@ -11,10 +11,12 @@ class BlogIndex extends React.Component {
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
 
+    console.log('posts', posts)
+
     return (
       <Layout location={this.props.location}>
         <Seo title="Blog" />
-        <Hero title="Blog" />
+        <Hero title="Blog" />-
         <ArticlePreview posts={posts} />
       </Layout>
     )
@@ -29,6 +31,7 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
+        visibleArticlePreview
         publishDate(formatString: "MMMM Do, YYYY")
         tags
         heroImage {
